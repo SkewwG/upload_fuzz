@@ -1,0 +1,26 @@
+POST /vulnerabilities/upload/ HTTP/1.1
+Host: demo.dvwa.com
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:56.0) Gecko/20100101 Firefox/56.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3
+Content-Type: multipart/form-data; boundary=---------------------------165753155123690
+Content-Length: 428
+Referer: http://demo.dvwa.com/vulnerabilities/upload/
+Cookie: PHPSESSID=mb0r5jt9b4d9umg72902mhav21; security=high
+Connection: close
+Upgrade-Insecure-Requests: 1
+
+-----------------------------165753155123690
+Content-Disposition: form-data; name="MAX_FILE_SIZE"
+
+100000
+-----------------------------165753155123690
+Content-Disposition: form-data; name="uploaded"; filename="1.jpg"
+Content-Type: image/jpeg
+
+testtesttesttesttesttest
+-----------------------------165753155123690
+Content-Disposition: form-data; name="Upload"
+
+Upload
+-----------------------------165753155123690--

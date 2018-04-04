@@ -1,0 +1,386 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<head>
+
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+		<title>Login :: Damn Vulnerable Web Application (DVWA) v1.10 *Development*</title>
+
+		<link rel="stylesheet" type="text/css" href="dvwa/css/login.css" />
+
+	</head>
+
+	<body>
+
+	<div id="wrapper">
+
+	<div id="header">
+
+	<br />
+
+	<p><img src="dvwa/images/login_logo.png" /></p>
+
+	<br />
+
+	</div> <!--<div id="header">-->
+
+	<div id="content">
+
+	<form action="login.php" method="post">
+
+	<fieldset>
+
+			<label for="user">Username</label> <input type="text" class="loginInput" size="20" name="username"><br />
+
+
+			<label for="pass">Password</label> <input type="password" class="loginInput" AUTOCOMPLETE="off" size="20" name="password"><br />
+
+			<br />
+
+			<p class="submit"><input type="submit" value="Login" name="Login"></p>
+
+	</fieldset>
+
+	<input type='hidden' name='user_token' value='65249a95b6b42806603b1b6e29204811' />
+
+	</form>
+
+	<br />
+
+	
+
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+
+	<!-- <img src="dvwa/images/RandomStorm.png" /> -->
+	</div > <!--<div id="content">-->
+
+	<div id="footer">
+
+	<p><a href="http://www.dvwa.co.uk/" target="_blank">Damn Vulnerable Web Application (DVWA)</a></p>
+
+	</div> <!--<div id="footer"> -->
+
+	</div> <!--<div id="wrapper"> -->
+
+	</body>
+
+</html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+		<title>Vulnerability: File Upload :: Damn Vulnerable Web Application (DVWA) v1.10 *Development*</title>
+
+		<link rel="stylesheet" type="text/css" href="../../dvwa/css/main.css" />
+
+		<link rel="icon" type="\image/ico" href="../../favicon.ico" />
+
+		<script type="text/javascript" src="../../dvwa/js/dvwaPage.js"></script>
+
+	</head>
+
+	<body class="home">
+		<div id="container">
+
+			<div id="header">
+
+				<img src="../../dvwa/images/logo.png" alt="Damn Vulnerable Web Application" />
+
+			</div>
+
+			<div id="main_menu">
+
+				<div id="main_menu_padded">
+				<ul class="menuBlocks"><li onclick="window.location='../../.'" class=""><a href="../../.">Home</a></li>
+<li onclick="window.location='../../instructions.php'" class=""><a href="../../instructions.php">Instructions</a></li>
+<li onclick="window.location='../../setup.php'" class=""><a href="../../setup.php">Setup / Reset DB</a></li>
+</ul><ul class="menuBlocks"><li onclick="window.location='../../vulnerabilities/brute/'" class=""><a href="../../vulnerabilities/brute/">Brute Force</a></li>
+<li onclick="window.location='../../vulnerabilities/exec/'" class=""><a href="../../vulnerabilities/exec/">Command Injection</a></li>
+<li onclick="window.location='../../vulnerabilities/csrf/'" class=""><a href="../../vulnerabilities/csrf/">CSRF</a></li>
+<li onclick="window.location='../../vulnerabilities/fi/.?page=include.php'" class=""><a href="../../vulnerabilities/fi/.?page=include.php">File Inclusion</a></li>
+<li onclick="window.location='../../vulnerabilities/upload/'" class="selected"><a href="../../vulnerabilities/upload/">File Upload</a></li>
+<li onclick="window.location='../../vulnerabilities/captcha/'" class=""><a href="../../vulnerabilities/captcha/">Insecure CAPTCHA</a></li>
+<li onclick="window.location='../../vulnerabilities/sqli/'" class=""><a href="../../vulnerabilities/sqli/">SQL Injection</a></li>
+<li onclick="window.location='../../vulnerabilities/sqli_blind/'" class=""><a href="../../vulnerabilities/sqli_blind/">SQL Injection (Blind)</a></li>
+<li onclick="window.location='../../vulnerabilities/weak_id/'" class=""><a href="../../vulnerabilities/weak_id/">Weak Session IDs</a></li>
+<li onclick="window.location='../../vulnerabilities/xss_d/'" class=""><a href="../../vulnerabilities/xss_d/">XSS (DOM)</a></li>
+<li onclick="window.location='../../vulnerabilities/xss_r/'" class=""><a href="../../vulnerabilities/xss_r/">XSS (Reflected)</a></li>
+<li onclick="window.location='../../vulnerabilities/xss_s/'" class=""><a href="../../vulnerabilities/xss_s/">XSS (Stored)</a></li>
+</ul><ul class="menuBlocks"><li onclick="window.location='../../security.php'" class=""><a href="../../security.php">DVWA Security</a></li>
+<li onclick="window.location='../../phpinfo.php'" class=""><a href="../../phpinfo.php">PHP Info</a></li>
+<li onclick="window.location='../../about.php'" class=""><a href="../../about.php">About</a></li>
+</ul><ul class="menuBlocks"><li onclick="window.location='../../logout.php'" class=""><a href="../../logout.php">Logout</a></li>
+</ul>
+				</div>
+
+			</div>
+
+			<div id="main_body">
+
+				
+<div class="body_padded">
+	<h1>Vulnerability: File Upload</h1>
+
+	
+
+	<div class="vulnerable_code_area">
+		<form enctype="multipart/form-data" action="#" method="POST">
+			<input type="hidden" name="MAX_FILE_SIZE" value="100000" />
+			Choose an image to upload:<br /><br />
+			<input name="uploaded" type="file" /><br />
+			<br />
+			<input type="submit" name="Upload" value="Upload" />
+
+		</form>
+		<pre>../../hackable/uploads/1..jsp.jpg.jsp succesfully uploaded!</pre>
+	</div>
+
+	<h2>More Information</h2>
+	<ul>
+		<li><a href="https://www.owasp.org/index.php/Unrestricted_File_Upload" target="_blank">https://www.owasp.org/index.php/Unrestricted_File_Upload</a></li>
+		<li><a href="https://blogs.securiteam.com/index.php/archives/1268" target="_blank">https://blogs.securiteam.com/index.php/archives/1268</a></li>
+		<li><a href="https://www.acunetix.com/websitesecurity/upload-forms-threat/" target="_blank">https://www.acunetix.com/websitesecurity/upload-forms-threat/</a></li>
+	</ul>
+</div>
+				<br /><br />
+				
+
+			</div>
+
+			<div class="clear">
+			</div>
+
+			<div id="system_info">
+				<input type="button" value="View Help" class="popup_button" onclick="javascript:popUp( '../../vulnerabilities/view_help.php?id=upload&security=low' )"> <input type="button" value="View Source" class="popup_button" onclick="javascript:popUp( '../../vulnerabilities/view_source.php?id=upload&security=low' )"> <div align="left"><em>Username:</em> admin<br /><em>Security Level:</em> low<br /><em>PHPIDS:</em> disabled</div>
+			</div>
+
+			<div id="footer">
+
+				<p>Damn Vulnerable Web Application (DVWA) v1.10 *Development*</p>
+
+			</div>
+
+		</div>
+
+	</body>
+
+</html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+		<title>Vulnerability: File Upload :: Damn Vulnerable Web Application (DVWA) v1.10 *Development*</title>
+
+		<link rel="stylesheet" type="text/css" href="../../dvwa/css/main.css" />
+
+		<link rel="icon" type="\image/ico" href="../../favicon.ico" />
+
+		<script type="text/javascript" src="../../dvwa/js/dvwaPage.js"></script>
+
+	</head>
+
+	<body class="home">
+		<div id="container">
+
+			<div id="header">
+
+				<img src="../../dvwa/images/logo.png" alt="Damn Vulnerable Web Application" />
+
+			</div>
+
+			<div id="main_menu">
+
+				<div id="main_menu_padded">
+				<ul class="menuBlocks"><li onclick="window.location='../../.'" class=""><a href="../../.">Home</a></li>
+<li onclick="window.location='../../instructions.php'" class=""><a href="../../instructions.php">Instructions</a></li>
+<li onclick="window.location='../../setup.php'" class=""><a href="../../setup.php">Setup / Reset DB</a></li>
+</ul><ul class="menuBlocks"><li onclick="window.location='../../vulnerabilities/brute/'" class=""><a href="../../vulnerabilities/brute/">Brute Force</a></li>
+<li onclick="window.location='../../vulnerabilities/exec/'" class=""><a href="../../vulnerabilities/exec/">Command Injection</a></li>
+<li onclick="window.location='../../vulnerabilities/csrf/'" class=""><a href="../../vulnerabilities/csrf/">CSRF</a></li>
+<li onclick="window.location='../../vulnerabilities/fi/.?page=include.php'" class=""><a href="../../vulnerabilities/fi/.?page=include.php">File Inclusion</a></li>
+<li onclick="window.location='../../vulnerabilities/upload/'" class="selected"><a href="../../vulnerabilities/upload/">File Upload</a></li>
+<li onclick="window.location='../../vulnerabilities/captcha/'" class=""><a href="../../vulnerabilities/captcha/">Insecure CAPTCHA</a></li>
+<li onclick="window.location='../../vulnerabilities/sqli/'" class=""><a href="../../vulnerabilities/sqli/">SQL Injection</a></li>
+<li onclick="window.location='../../vulnerabilities/sqli_blind/'" class=""><a href="../../vulnerabilities/sqli_blind/">SQL Injection (Blind)</a></li>
+<li onclick="window.location='../../vulnerabilities/weak_id/'" class=""><a href="../../vulnerabilities/weak_id/">Weak Session IDs</a></li>
+<li onclick="window.location='../../vulnerabilities/xss_d/'" class=""><a href="../../vulnerabilities/xss_d/">XSS (DOM)</a></li>
+<li onclick="window.location='../../vulnerabilities/xss_r/'" class=""><a href="../../vulnerabilities/xss_r/">XSS (Reflected)</a></li>
+<li onclick="window.location='../../vulnerabilities/xss_s/'" class=""><a href="../../vulnerabilities/xss_s/">XSS (Stored)</a></li>
+</ul><ul class="menuBlocks"><li onclick="window.location='../../security.php'" class=""><a href="../../security.php">DVWA Security</a></li>
+<li onclick="window.location='../../phpinfo.php'" class=""><a href="../../phpinfo.php">PHP Info</a></li>
+<li onclick="window.location='../../about.php'" class=""><a href="../../about.php">About</a></li>
+</ul><ul class="menuBlocks"><li onclick="window.location='../../logout.php'" class=""><a href="../../logout.php">Logout</a></li>
+</ul>
+				</div>
+
+			</div>
+
+			<div id="main_body">
+
+				
+<div class="body_padded">
+	<h1>Vulnerability: File Upload</h1>
+
+	
+
+	<div class="vulnerable_code_area">
+		<form enctype="multipart/form-data" action="#" method="POST">
+			<input type="hidden" name="MAX_FILE_SIZE" value="100000" />
+			Choose an image to upload:<br /><br />
+			<input name="uploaded" type="file" /><br />
+			<br />
+			<input type="submit" name="Upload" value="Upload" />
+
+		</form>
+		<pre>../../hackable/uploads/1..jsp.jpg.jsp succesfully uploaded!</pre>
+	</div>
+
+	<h2>More Information</h2>
+	<ul>
+		<li><a href="https://www.owasp.org/index.php/Unrestricted_File_Upload" target="_blank">https://www.owasp.org/index.php/Unrestricted_File_Upload</a></li>
+		<li><a href="https://blogs.securiteam.com/index.php/archives/1268" target="_blank">https://blogs.securiteam.com/index.php/archives/1268</a></li>
+		<li><a href="https://www.acunetix.com/websitesecurity/upload-forms-threat/" target="_blank">https://www.acunetix.com/websitesecurity/upload-forms-threat/</a></li>
+	</ul>
+</div>
+				<br /><br />
+				
+
+			</div>
+
+			<div class="clear">
+			</div>
+
+			<div id="system_info">
+				<input type="button" value="View Help" class="popup_button" onclick="javascript:popUp( '../../vulnerabilities/view_help.php?id=upload&security=medium' )"> <input type="button" value="View Source" class="popup_button" onclick="javascript:popUp( '../../vulnerabilities/view_source.php?id=upload&security=medium' )"> <div align="left"><em>Username:</em> admin<br /><em>Security Level:</em> medium<br /><em>PHPIDS:</em> disabled</div>
+			</div>
+
+			<div id="footer">
+
+				<p>Damn Vulnerable Web Application (DVWA) v1.10 *Development*</p>
+
+			</div>
+
+		</div>
+
+	</body>
+
+</html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+		<title>Vulnerability: File Upload :: Damn Vulnerable Web Application (DVWA) v1.10 *Development*</title>
+
+		<link rel="stylesheet" type="text/css" href="../../dvwa/css/main.css" />
+
+		<link rel="icon" type="\image/ico" href="../../favicon.ico" />
+
+		<script type="text/javascript" src="../../dvwa/js/dvwaPage.js"></script>
+
+	</head>
+
+	<body class="home">
+		<div id="container">
+
+			<div id="header">
+
+				<img src="../../dvwa/images/logo.png" alt="Damn Vulnerable Web Application" />
+
+			</div>
+
+			<div id="main_menu">
+
+				<div id="main_menu_padded">
+				<ul class="menuBlocks"><li onclick="window.location='../../.'" class=""><a href="../../.">Home</a></li>
+<li onclick="window.location='../../instructions.php'" class=""><a href="../../instructions.php">Instructions</a></li>
+<li onclick="window.location='../../setup.php'" class=""><a href="../../setup.php">Setup / Reset DB</a></li>
+</ul><ul class="menuBlocks"><li onclick="window.location='../../vulnerabilities/brute/'" class=""><a href="../../vulnerabilities/brute/">Brute Force</a></li>
+<li onclick="window.location='../../vulnerabilities/exec/'" class=""><a href="../../vulnerabilities/exec/">Command Injection</a></li>
+<li onclick="window.location='../../vulnerabilities/csrf/'" class=""><a href="../../vulnerabilities/csrf/">CSRF</a></li>
+<li onclick="window.location='../../vulnerabilities/fi/.?page=include.php'" class=""><a href="../../vulnerabilities/fi/.?page=include.php">File Inclusion</a></li>
+<li onclick="window.location='../../vulnerabilities/upload/'" class="selected"><a href="../../vulnerabilities/upload/">File Upload</a></li>
+<li onclick="window.location='../../vulnerabilities/captcha/'" class=""><a href="../../vulnerabilities/captcha/">Insecure CAPTCHA</a></li>
+<li onclick="window.location='../../vulnerabilities/sqli/'" class=""><a href="../../vulnerabilities/sqli/">SQL Injection</a></li>
+<li onclick="window.location='../../vulnerabilities/sqli_blind/'" class=""><a href="../../vulnerabilities/sqli_blind/">SQL Injection (Blind)</a></li>
+<li onclick="window.location='../../vulnerabilities/weak_id/'" class=""><a href="../../vulnerabilities/weak_id/">Weak Session IDs</a></li>
+<li onclick="window.location='../../vulnerabilities/xss_d/'" class=""><a href="../../vulnerabilities/xss_d/">XSS (DOM)</a></li>
+<li onclick="window.location='../../vulnerabilities/xss_r/'" class=""><a href="../../vulnerabilities/xss_r/">XSS (Reflected)</a></li>
+<li onclick="window.location='../../vulnerabilities/xss_s/'" class=""><a href="../../vulnerabilities/xss_s/">XSS (Stored)</a></li>
+</ul><ul class="menuBlocks"><li onclick="window.location='../../security.php'" class=""><a href="../../security.php">DVWA Security</a></li>
+<li onclick="window.location='../../phpinfo.php'" class=""><a href="../../phpinfo.php">PHP Info</a></li>
+<li onclick="window.location='../../about.php'" class=""><a href="../../about.php">About</a></li>
+</ul><ul class="menuBlocks"><li onclick="window.location='../../logout.php'" class=""><a href="../../logout.php">Logout</a></li>
+</ul>
+				</div>
+
+			</div>
+
+			<div id="main_body">
+
+				
+<div class="body_padded">
+	<h1>Vulnerability: File Upload</h1>
+
+	
+
+	<div class="vulnerable_code_area">
+		<form enctype="multipart/form-data" action="#" method="POST">
+			<input type="hidden" name="MAX_FILE_SIZE" value="100000" />
+			Choose an image to upload:<br /><br />
+			<input name="uploaded" type="file" /><br />
+			<br />
+			<input type="submit" name="Upload" value="Upload" />
+
+		</form>
+		<pre>Your image was not uploaded. We can only accept JPEG or PNG images.</pre>
+	</div>
+
+	<h2>More Information</h2>
+	<ul>
+		<li><a href="https://www.owasp.org/index.php/Unrestricted_File_Upload" target="_blank">https://www.owasp.org/index.php/Unrestricted_File_Upload</a></li>
+		<li><a href="https://blogs.securiteam.com/index.php/archives/1268" target="_blank">https://blogs.securiteam.com/index.php/archives/1268</a></li>
+		<li><a href="https://www.acunetix.com/websitesecurity/upload-forms-threat/" target="_blank">https://www.acunetix.com/websitesecurity/upload-forms-threat/</a></li>
+	</ul>
+</div>
+				<br /><br />
+				
+
+			</div>
+
+			<div class="clear">
+			</div>
+
+			<div id="system_info">
+				<input type="button" value="View Help" class="popup_button" onclick="javascript:popUp( '../../vulnerabilities/view_help.php?id=upload&security=high' )"> <input type="button" value="View Source" class="popup_button" onclick="javascript:popUp( '../../vulnerabilities/view_source.php?id=upload&security=high' )"> <div align="left"><em>Username:</em> admin<br /><em>Security Level:</em> high<br /><em>PHPIDS:</em> disabled</div>
+			</div>
+
+			<div id="footer">
+
+				<p>Damn Vulnerable Web Application (DVWA) v1.10 *Development*</p>
+
+			</div>
+
+		</div>
+
+	</body>
+
+</html>

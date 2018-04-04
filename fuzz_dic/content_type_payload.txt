@@ -1,0 +1,6 @@
+Content-Type: image/gif
+Content-Type: image/jpeg
+Content-Type: application/php
+Content-Type: text/plain
+content-type: image/jpeg
+Content-Type:  image/jpeg
